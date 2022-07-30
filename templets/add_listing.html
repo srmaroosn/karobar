@@ -12,95 +12,90 @@
 						<h3>Submit a Free Ad</h3>
 					</div>
 					<form method="post" enctype="multipart/form-data" class="form-horizontal addform">
+						{% csrf_token %}
 						<div class="form-group">
 							<div class="col-sm-12 col-xs-12">
 								<label>Add Title*</label>
 								<span class="pull-right">70 char Left</span>
-								<input name="title" value="" id="input-title" class="form-control"  type="text">
+								<input name="titless" value="" id="input-title" class="form-control"  type="text">
+							</div>
+							
+						</div>
+						<div class="form-group">
+							<div class="col-sm-8 col-xs-12">
+								<label>Brand*</label>
+								<input name="Brand" value="" id="input-name" class="form-control"  type="text">
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12 col-xs-12">
+								
 								<label>Select Category*</label>
-								<ul class="nav nav-tabs list-inline">
-									<li class="active">
-										<a href="#vehicle" data-toggle="tab" aria-expanded="true"><img src="../static/images/vehicle/icons8-motorcycle.png" alt="icon" title="icon" class="img-fluid"></a>
+								<ul class="ads-category list-inline" >
+									<li ><input type="radio" name="test" id="cb1"  class="ads-category-selection" value="vehicle" required/>
+										<label for="cb1"><img src="{ ../static/images/vehicle/icons8-motorcycle.png' }" /><span >Automobiles</span></label>
+									  </li>
+									<li ><input type="radio" name="test" id="cb3"  class="ads-category-selection" value="Mobile_and_Accessories" required/>
+									  <label for="cb3"><img src="{ ../static/images/mobile/smartphone-tablet.png' }" /><span>Mobile & Accessories</span></label>
 									</li>
-									<li class="">
-										<a href="#mobile" data-toggle="tab" aria-expanded="false"><img src="images/mobile/smartphone-tablet.png" alt="icon" title="icon" class="img-fluid"></a>
-									</li>
-									<li class="">
-										<a href="#electonic" data-toggle="tab" aria-expanded="false"><img src="images/electronics/globe-bulb.png" alt="icon" title="icon" class="img-fluid"></a>
-									</li>
-									<li class="">
-										<a href="#real" data-toggle="tab" aria-expanded="false"><img src="images/real-estate/building.png" alt="icon" title="icon" class="img-fluid"></a>
-									</li>
-									<li class="">
-										<a href="#fashion" data-toggle="tab" aria-expanded="false"><img src="images/fashion/trainers.png" alt="icon" title="icon" class="img-fluid"></a>
-									</li>
-									<li class="">
-										<a href="#furniture" data-toggle="tab" aria-expanded="false"><img src="images/furniture/icon-chair.png" alt="icon" title="icon" class="img-fluid"></a>
-									</li>
-									<li class="">
-										<a href="#jobs" data-toggle="tab" aria-expanded="false"><img src="images/jobs/icon-briefcase.png" alt="icon" title="icon" class="img-fluid"></a>
-									</li>
-									<li class="">
-										<a href="#service" data-toggle="tab" aria-expanded="false"><img src="images/services/maintenance.png" alt="icon" title="icon" class="img-fluid"></a>
-									</li>
-									<li class="">
-										<a href="#pet" data-toggle="tab" aria-expanded="false"><img src="images/pets/dog.png" alt="icon" title="icon" class="img-fluid"></a>
-									</li>
-									<li class="">
-										<a href="#education" data-toggle="tab" aria-expanded="false"><img src="images/education/icon-book.png" alt="icon" title="icon" class="img-fluid"></a>
-									</li>
-									<li class="">
-										<a href="#matrimony" data-toggle="tab" aria-expanded="false"><img src="images/matrimony/man-woman.png" alt="icon" title="icon" class="img-fluid"></a>
-									</li>
-									<li class="">
-										<a href="#notes" data-toggle="tab" aria-expanded="false"><img src="images/notes/icon-noney.png" alt="icon" title="icon" class="img-fluid"></a>
-									</li>
+									<li ><input type="radio" name="test" id="cb2" class="ads-category-selection"  value="Electronics_TVs_and_More" required />
+										<label for="cb2"><img src="{ ../static//images/icon3.png' }" /><span>Electronics TVs & More</span></label>
+									  </li>
 								</ul>
 							</div>
 						</div>
 						<div  class="tab-content">
 							<div class="tab-pane active" id="vehicle">
 								<div class="form-group">
-									<div class="col-sm-5 col-xs-12">
-										<label>Price*</label>
-										<input name="price" value="" id="input-price" class="form-control"  type="text">
-									</div>
-								</div>
-								<div class="form-group">
 									<div class="col-sm-7 col-xs-12">
 										<label>Model*</label>
-										<input name="model" value="" id="input-model" class="form-control"  type="text">
+										<input name="model"  id="input-model" class="form-control"  type="text" >
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="col-sm-7 col-xs-12">
 										<label>Year*</label>
-										<input name="year" value="" id="input-year" class="form-control"  type="text">
+										<input name="year"  id="input-year" class="form-control"  type="date" >
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<div class="col-sm-7 col-xs-12 square">
+										<span> km</span><label>KM Driven*</label>
+										<input name="driven" value="" id="input-driven" class="form-control"  type="number">
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane" id="Mobile_and_Accessories">
+								<div class="form-group">
+									<div class="col-sm-7 col-xs-12">
+										<label>Model*</label>
+										<input name="model"  id="input-model2" class="form-control"  type="text" >
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="col-sm-7 col-xs-12">
-										<label>KM Driven*</label>
-										<input name="driven" value="" id="input-driven" class="form-control"  type="text">
+										<label>Buy Year*</label>
+										<input name="years"  id="input-year2" class="form-control"  type="date" >
 									</div>
 								</div>
+							 
 							</div>
-							<div class="tab-pane" id="mobile">
+							<div class="tab-pane" id="Electronics_TVs_and_More">
 								<div class="form-group">
-									<div class="col-sm-5 col-xs-12">
-										<label>Price*</label>
-										<input name="price1" value="" id="input-price1" class="form-control"  type="text">
+									<div class="col-sm-7 col-xs-12">
+										<label>Model*</label>
+										<input name="model"  id="input-model3" class="form-control"  type="text" >
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-7 col-xs-12">
+										<label>Buy Year*</label>
+										<input name="years"  id="input-year3" class="form-control"  type="date" >
 									</div>
 								</div>
 							</div>
-							<div class="tab-pane" id="electonic">
-								
-							</div>
-							<div class="tab-pane" id="real">
+							<div class="tab-pane" id="Real_Estate">
 								<div class="form-group">
 									<div class="col-sm-12 col-xs-12">
 										<label>Options*</label>
@@ -115,9 +110,9 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<div class="col-sm-5 col-xs-12">
+									<div class="col-sm-5 col-xs-12 square_left">
 										<label>Price*</label>
-										<input name="price2" value="" id="input-price2" class="form-control"  type="text">
+										<span> रू</span><input name="price2" value="" id="input-price2" class="form-control"  type="number">
 									</div>
 								</div>
 								<div class="form-group">
@@ -151,8 +146,12 @@
 								<div class="form-group">
 									<div class="col-sm-7 col-xs-12 square">
 										<label>Square feet*</label>
-										<input name="feet" value="" id="input-feet" class="form-control"  type="text">
-										<span>ft2</span>
+										
+										<input name="feet" value="" id="input-feet" class="form-control"  type="number">
+										<span>ft<sup>2</sup></span>
+										
+										
+										
 									</div>
 								</div>
 							</div>
@@ -195,6 +194,25 @@
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12 col-xs-12">
+								<label>Conditions*</label>
+										<div class="checked">
+											<div class="check">
+												<input type="radio" name="credit" class="checkclass" value="Used" />Used
+											</div>
+											<div class="check">
+												<input type="radio" name="credit" class="checkclass" value="Brand New"/>Brand New
+											</div>
+											<div class="check">
+												<input type="radio" name="credit" class="checkclass" value="Likely New"/>Likely New
+											</div>
+											<div class="check">
+												<input type="radio" name="credit" class="checkclass" value="Not Working"/>Not Working
+											</div>
+										</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-12 col-xs-12">
 								<label>Description*</label>
 								<span class="pull-right">5000 char Left</span>
 								<textarea name="enquiry" id="input-enquiry" class="form-control"></textarea>
@@ -203,14 +221,21 @@
 						<div class="form-group">
 							<div class="col-sm-12 col-xs-12">
 								<label>Add Photos*</label>
-								<div class="photo">
+								<input name="photo" class="form-control"  type="file" accept="image/*">
+								<!-- <div class="photo">
 									<ul class="list-inline">
 										<li><a href="#"><i class="la la-plus"></i></a></li>
 										<li><a href="#"><i class="la la-plus"></i></a></li>
 										<li><a href="#"><i class="la la-plus"></i></a></li>
 										<li><a href="#"><i class="la la-plus"></i></a></li>
 									</ul>
-								</div>
+								</div> -->
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-7 col-xs-12 square_left">
+								<span> रू</span><label>Price*</label>
+								<input name="price" value="" id="input-price" class="form-control"  type="number">
 							</div>
 						</div>
 						<div class="form-group">
@@ -220,9 +245,9 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<div class="col-sm-7 col-xs-12">
+							<div class="col-sm-7 col-xs-12 square_left">
 								<label>Phone Number*</label>
-								<input name="phone" value="" id="input-phone" class="form-control"  type="text">
+								<span>+977</span><input name="phone" value="" id="input-phone" class="form-control"  type="number">
 							</div>
 						</div>
 						<div class="form-group">
@@ -232,7 +257,7 @@
 							</div>
 						</div>
 						<div class="buttons">
-							<input class="btn btn-primary" value="Submit" type="submit">
+							<input class="btn btn-primary" id = "ad_submit" value="Submit" type="submit">
 						</div>
 					</form>
 				</div>
@@ -241,6 +266,5 @@
 	</div>
 </div>
 <!-- ad-single end here -->
-
 
    {% endblock %}

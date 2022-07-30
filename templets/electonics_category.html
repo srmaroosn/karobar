@@ -49,28 +49,27 @@
 			
 			<div class="col-lg-10 col-sm-9 col-md-9 padd0 col-xs-12 catebox">
 				<div class="row">
+					{% for items in electronic %}
 					<div class="product-layout product-grid col-lg-3 col-md-4 col-sm-6 col-xs-12 cols">
 						<div class="product-thumb">
 							<div class="image">
-								<a href="ads_single_view.html"><img src="images/electronics/01.jpg" alt="image" title="image" class="img-fluid"></a>
-								<div class="onhover"> £3,000.00</div>
+								<a href="ads_single_view.html"><img src="../static/images/electronics/01.jpg" alt="image" title="image" class="img-fluid"></a>
+								<div class="onhover"> Rs 3,000.00</div>
 							</div>
 							<div class="caption">
-								<h4><a href="ads_single_view.html">Ads post title here</a></h4>
+								<h4><a href="ads_single_view.html">{{items.title}}</a></h4>
 								<p class="des">Category : Vehicle</p>
 								<ul class="list-unstyled">
-									<li><i class="la la-map-marker"></i> Ludhiana, Punjab, India</li>
+									<li><i class="la la-map-marker"></i> Hetauda, Nepal</li>
 									<li><i class="la la-clock-o"></i> 09/03/2020</li>
 								</ul>
 							</div>
 						</div>
 					</div>
-						
+						{% endfor %}
 					
 					
-				<div class="text-center icon">
-					<i class="la la-spinner fa-spin"></i>
-				</div>
+				
 			</div>	
 		</div>
 	</div>

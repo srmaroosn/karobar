@@ -2,10 +2,12 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from .models import *
 
-class Vehicle_Ads_Form(forms.ModelForm):
+class CustomerForm(forms.ModelForm):
+    
     class Meta:
-        model = Vehicle_Ads
-        fields = '__all__'
+        model=Customer
+        fields='__all__'
+        exclude= ['user']
 
 class UserCreation(UserCreationForm):
     email = forms.EmailField()

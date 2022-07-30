@@ -20,13 +20,36 @@ def adssingleview (request):
     return render(request,'ads_single_view.html')
 
 def dashboard (request):
-    return render(request,'dashboard.html')
+    
+    
+    details = Customer.objects.all()
+  
+
+
+    customer=request.user.customer
+    form=CustomerForm(instance=customer)
+    if request.method == 'POST':
+        form = CustomerForm(request.POST, request.FILES, instance=customer)
+        if form.is_valid():
+            form.save()
+
+    description= Customer.objects.all()
+    print(description)
+    
+    return render(request, 'dashboard.html', context={ 'description':description, 'form':form, })
+    
 
 def electronics (request):
-    return render(request,'electonics_category.html')
+    electronic=Electronics_TVs_and_More_Ads.objects.all()
+    context={'electronic':electronic}
+    return render(request,'electonics_category.html', context)
 
 
 def login(request):
+    if request.user.is_authenticated:
+        return redirect('index')
+
+        
     if request.method == "POST":
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -43,7 +66,10 @@ def login(request):
     
 
 def mobile(request):
-    return render(request, 'mobile_category.html')
+    mobile=Mobile_and_Accessories_Ads.objects.all()
+    context={'mobile':mobile}
+    return render(request,'mobile_category.html', context)
+    
 
 def register(request):
     if request.method =="GET":
@@ -72,3 +98,17 @@ def user_logout(request):
     logout(request)
     
     return redirect('index')
+def userprofile(request):
+    customer=request.user.customer
+    form=CustomerForm(instance=customer)
+
+    if request.method == 'POST':
+        form = CustomerForm(request.POST, request.FILES, instance=customer)
+        if form.is_valid():
+            form.save()
+
+    return render(request, 'userprofile.html', context={'form':form})
+
+def myads(request):
+    orders = request.user.customer.vehicle_ads_set.all()
+    return render(request, 'dashboard_my_ads.html', context={'orders':orders})

@@ -1,0 +1,48 @@
+{% extends 'nav.html' %}
+{% block content %}
+
+
+<!-- faq start here -->
+<div class="commontop">
+	<div class="container"> 
+		<div class="col-md-12 col-sm-12 col-xs-12 login padd0">
+			<div class="row">
+			<div class="col-md-6 col-sm-6 col-xs-12 bor">
+                <div class="dashboard">
+					<div class="profile">
+						<div class="col-sm-3 col-xs-12">
+							<img class="img-fluid" src="images/dashboard/dp.png" alt="image" title="image">
+						</div>
+						<div class="col-sm-9 col-xs-12 padd0">
+							<h4>{{request.user}}</h4>
+							<div class="common">
+								<p class="des"><i class="la la-map-marker"></i> Ludhiana, Punjab</p>
+								<p class="des1">Create Account : 2 Years ago</p>
+							</div>
+							<ul class="list-inline">
+								<li class="active"><a href="dashboard.html"><img src="images/dashboard/grid.png" alt="image" title="image" /><p>Dashboard</p></a></li>
+								<li ><a href="dashboard_my_ads.html"><img src="images/dashboard/card.png" alt="image" title="image" /><p>My Ads</p></a></li>
+								
+							</ul>
+						</div>
+					</div>
+				
+				
+			</div>
+			<div class="col-md-6 col-sm-6 col-xs-12">
+				<h1>Additional Details</h1>
+				<form method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+					{{form.as_p}}
+					<input type="submit" value="Register Now" class="btn btn-primary btn-block" />
+				</form>
+			</div>	
+			</div>	
+		</div>
+	</div>
+</div>
+<!-- faq end here -->
+
+
+
+{% endblock %}

@@ -7,11 +7,18 @@ class Customer(models.Model):
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=200, null=True, blank=True)
     location = models.CharField(max_length=100,null=True, blank=True)
-    profile_pic = models.ImageField(null=True, blank=True),
-    about_yourself = models.TextField(null=True, blank=True)
+    profile_pic = models.ImageField(null=True, blank=True)
+    about_yourself = models.TextField(max_length=50,null=True, blank=True)
 
     def __str__(self):
         return str(self.name)
+    @property
+    def imageurl(self):
+        try:
+            url = self.photo.url
+        except:
+            url=''
+        return url
 
 
 class Vehicle_Ads(models.Model):

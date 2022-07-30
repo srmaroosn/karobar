@@ -1,0 +1,76 @@
+{% extends 'nav.html' %}
+{% block content %}
+
+
+
+<!-- ad-single start here -->
+<div class="commontop">
+	<div class="container"> 
+		<div class="row">
+			<div class="col-sm-12 col-xs-12">
+				<div class="dashboard">
+					<div class="profile">
+						<div class="col-sm-3 col-xs-12">
+							<img class="img-fluid" src="{{request.user.customer.profile_pic.url}}" title="image">
+						</div>
+						<div class="col-sm-9 col-xs-12 padd0">
+							<h4>{{request.user}}</h4>
+							<div class="common">
+								<p class="des"><i class="la la-map-marker"></i>{{request.user.customer.location}} </p>
+								<p class="des1">Create Account : 2 Years ago</p>
+							</div>
+							<ul class="list-inline">
+								<li ><a href="{% url 'dashboard' %}"><img src="../static/images/dashboard/grid.png" alt="image" title="image" /><p>Dashboard</p></a></li>
+								
+							</ul>
+						</div>
+					</div>
+					<div class="inner-ads">
+						
+						<div class="product-layout product-list">
+							<div class="product-thumb">
+								
+								
+							
+								{% for order in orders %}
+							
+								<div class="image">
+									<a href="ads_single_view.html"><img src="{{order.imageurl}}" alt="image" title="image" class="img-fluid"></a>
+								</div>
+								<div class="caption">
+									<h4><a href="ads_single_view.html">{{order.company_name}}</a></h4>
+									
+									<p class="des">Category : Vehicle</p>
+									<ul class="list-unstyled">
+										<li><i class="la la-map-marker"></i> Birauta, Pohara</li>
+										<li><i class="la la-clock-o"></i> 15 Hour ago</li>
+									</ul>
+									<hr>
+									<p class="des">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pretium dictum diam vel laoreet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer dictum justo nec lacus porta congue....</p>
+									<div class="button-group text-center visible-xs">
+										<button type="button">$ 12000</button>
+										<button type="button"><i class="la la-eye"></i></button>
+										<button type="button"><i class="la la-pencil"></i></button>
+										<button type="button"><i class="la la-cloud-upload"></i></button>
+										<button type="button"><i class="la la-trash-o"></i></button>
+										<button type="button"><i class="la la-circle"></i></button>
+									</div>
+									
+								</div>
+								{% endfor %}
+								
+							</div>
+						</div>
+						
+						
+						
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ad-single end here -->
+
+{% endblock %}

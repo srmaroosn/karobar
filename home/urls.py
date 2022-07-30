@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path
+from django.views import View
 from . import views 
 
 
@@ -15,6 +16,8 @@ urlpatterns = [
     path('vehicles/', views.vehicles, name='vehicles'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('logout/', views.user_logout, name='logout'),
+    path('userprofile/', views.userprofile, name='userprofile'),
+    path('myads/', views.myads, name='myads')
 
 
 
